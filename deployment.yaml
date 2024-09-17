@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: expressjs-backend
-        image: fluxcdstudent20.azurecr.io/fluxexamples/express-server:flux
+        image: fluxcdstudent20.azurecr.io/fluxexamples/getting-started:flux
         ports:
         - containerPort: 4000
       imagePullSecrets:
