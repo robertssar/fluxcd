@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: getting-started
+  name: expressjs-backend
   namespace: default
 spec:
   strategy:
@@ -12,15 +12,15 @@ spec:
   replicas: 5
   selector:
     matchLabels:
-      app: getting-started
+      app: expressjs-backend
   template:
     metadata:
       labels:
-        app: getting-started
+        app: expressjs-backend
     spec:
       containers:
-      - name: getting-started
-        image: fluxcdstudent20.azurecr.io/fluxexamples/getting-started:flux
+      - name: expressjs-backend
+        image: fluxcdstudent20.azurecr.io/fluxexamples/express-server:flux
         ports:
         - containerPort: 4000
       imagePullSecrets:
