@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: expressjs-backend
+  namespace: default
+spec:
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  replicas: 5
+  selector:
+    matchLabels:
+      app: expressjs-backend
+  template:
+    metadata:
+      labels:
+        app: expressjs-backend
+    spec:
+      containers:
+      - name: expressjs-backend
+        image: asetrainer.azurecr.io/fluxexamples/express-server:flux
+        ports:
+        - containerPort: 4000
+      imagePullSecrets:
+      - name: acr-secret
